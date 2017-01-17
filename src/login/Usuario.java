@@ -34,7 +34,8 @@ public class Usuario {
     private String phone = "";
     private boolean subscribed;
     private String address = "";
-
+    private boolean medico;
+    
     /**
      * @return the email
      */
@@ -90,4 +91,9 @@ public class Usuario {
     public void setAddress(String address) {
         this.address = address;
     }
+    
+    public boolean getMedico() {
+        return medico;
+    }
+    
 }

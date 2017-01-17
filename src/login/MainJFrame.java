@@ -5,6 +5,8 @@
  */
 package login;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Guiller
@@ -30,13 +32,22 @@ public class MainJFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
         BotonLogin = new javax.swing.JButton();
+        Bienvenido = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        TextoClave = new javax.swing.JPasswordField();
         TextoUser = new javax.swing.JTextField();
-        TextoClave = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         infoMsj = new javax.swing.JLabel();
+        botonCerrar = new javax.swing.JButton();
+        BotonAyuda = new javax.swing.JToggleButton();
 
         jScrollPane1.setViewportView(jTextPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setMinimumSize(new java.awt.Dimension(378, 296));
+        setResizable(false);
 
         BotonLogin.setText("Login");
         BotonLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -45,46 +56,123 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
-        TextoUser.setText("demo");
+        Bienvenido.setFont(new java.awt.Font("Garamond", 3, 30)); // NOI18N
+        Bienvenido.setText("Bienvenido");
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        TextoClave.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TextoClave.setText("demo");
+        TextoClave.setToolTipText("Escriba aqui su contraseña.");
+        TextoClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TextoClaveActionPerformed(evt);
+            }
+        });
 
-        infoMsj.setText("jLabel1");
+        TextoUser.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TextoUser.setText("demo");
+        TextoUser.setToolTipText("Escriba aqui su usuario.");
+        TextoUser.setName(""); // NOI18N
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel1.setText("Usuario:");
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel2.setText("Contraseña:");
+
+        infoMsj.setFont(new java.awt.Font("Garamond", 0, 18)); // NOI18N
+        infoMsj.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        infoMsj.setToolTipText("");
+        infoMsj.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        infoMsj.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        infoMsj.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(infoMsj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addComponent(TextoUser)
+                    .addComponent(TextoClave, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TextoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TextoClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(infoMsj, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        botonCerrar.setText("Cerrar");
+        botonCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCerrarActionPerformed(evt);
+            }
+        });
+
+        BotonAyuda.setText("Ayuda");
+        BotonAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAyudaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(152, 152, 152)
-                .addComponent(BotonLogin)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotonLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(TextoClave)
-                    .addComponent(TextoUser, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
+                .addGap(125, 125, 125)
+                .addComponent(botonCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(168, 168, 168)
-                .addComponent(infoMsj)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(BotonAyuda)
+                .addGap(84, 84, 84)
+                .addComponent(Bienvenido, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 99, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(92, 92, 92)
-                .addComponent(TextoUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(TextoClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(infoMsj)
-                .addGap(35, 35, 35)
-                .addComponent(BotonLogin)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(Bienvenido))
+                    .addComponent(BotonAyuda))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BotonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(botonCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonLoginActionPerformed
@@ -92,11 +180,11 @@ public class MainJFrame extends javax.swing.JFrame {
         
         if (Cuentas.validate(TextoUser.getText(), TextoClave.getText())) {
             loggedUser = Usuario.of(TextoUser.getText());
-            infoMsj.setText("Bienvenido" + TextoUser.getText());
+            infoMsj.setText("Bienvenido " + TextoUser.getText());
             //gotoProfile();        //Por si queremos acceder a info de la cuenta en un futuro "Cuentas.java"
             //return true;          //version anterior.
         } else {
-            infoMsj.setText("Error: El usuario o la contraseña no se reconocen.");
+            infoMsj.setText("El usuario o la contraseña no se reconocen.");
             //return false;         //version anterior.
         }
         
@@ -115,6 +203,22 @@ public class MainJFrame extends javax.swing.JFrame {
         
         */
     }//GEN-LAST:event_BotonLoginActionPerformed
+
+    private void TextoClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextoClaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextoClaveActionPerformed
+
+    private void botonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarActionPerformed
+        MainJFrame.this.dispose();
+    }//GEN-LAST:event_botonCerrarActionPerformed
+
+    private void BotonAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAyudaActionPerformed
+        //new ayuda.AyudaJFrame().setVisible(true);
+        if(BotonAyuda == null){
+            new ayuda.AyudaJFrame().setVisible(true);
+        }else
+            new ayuda.AyudaJFrame().setVisible(false);
+    }//GEN-LAST:event_BotonAyudaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,10 +259,16 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Bienvenido;
+    private javax.swing.JToggleButton BotonAyuda;
     private javax.swing.JButton BotonLogin;
-    private javax.swing.JTextField TextoClave;
+    private javax.swing.JPasswordField TextoClave;
     private javax.swing.JTextField TextoUser;
+    private javax.swing.JButton botonCerrar;
     private javax.swing.JLabel infoMsj;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextPane jTextPane1;
     // End of variables declaration//GEN-END:variables
